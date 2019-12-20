@@ -28,7 +28,7 @@ class PinCode extends React.PureComponent {
                 changeScreen: false
             });
             this.doShake();
-            await delay_1.default(500);
+            await delay_1.default(1000);
             this.newAttempt();
         };
         this.newAttempt = async () => {
