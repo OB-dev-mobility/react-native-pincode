@@ -289,8 +289,8 @@ class PinCode extends React.PureComponent {
         }
     }
     async doShake() {
-        const duration = 30;
-        react_native_1.Vibration.vibrate(300, false);
+        const duration = 10;
+        react_native_1.Vibration.vibrate(100, false);
         const length = react_native_1.Dimensions.get("window").width / 3;
         await delay_1.default(duration);
         this.setState({ moveData: { x: length, y: 0 } });
