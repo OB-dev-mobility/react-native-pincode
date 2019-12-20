@@ -21,7 +21,7 @@ class PinCode extends React.PureComponent {
     constructor(props) {
         super(props);
         this.failedAttempt = async () => {
-            await delay_1.default(300);
+            //await delay_1.default(300);
             this.setState({
                 showError: true,
                 attemptFailed: true,
