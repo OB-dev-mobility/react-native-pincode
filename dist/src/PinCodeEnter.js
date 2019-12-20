@@ -49,7 +49,7 @@ class PinCodeEnter extends React.PureComponent {
                         this.props.changeInternalStatus(utils_1.PinResultStatus.failure);
                     }
                     if (this.props.onFail) {
-                        await delay_1.default(100);
+                        //await delay_1.default(100);
                         this.props.onFail(pinAttempts);
                     }
                 }
@@ -80,13 +80,13 @@ class PinCodeEnter extends React.PureComponent {
     triggerTouchID() {
         react_native_touch_id_1.default.isSupported()
             .then(() => {
-            setTimeout(() => {
-                this.launchTouchID();
-            });
-        })
+                setTimeout(() => {
+                    this.launchTouchID();
+                });
+            })
             .catch((error) => {
-            console.warn('TouchID error', error);
-        });
+                console.warn('TouchID error', error);
+            });
     }
     async launchTouchID() {
         const optionalConfigObject = {
@@ -117,9 +117,11 @@ class PinCodeEnter extends React.PureComponent {
     }
     render() {
         const pin = this.props.storedPin || (this.keyChainResult && this.keyChainResult);
-        return (React.createElement(react_native_1.View, { style: this.props.styleContainer
+        return (React.createElement(react_native_1.View, {
+            style: this.props.styleContainer
                 ? this.props.styleContainer
-                : styles.container },
+                : styles.container
+        },
             React.createElement(PinCode_1.default, { buttonDeleteComponent: this.props.buttonDeleteComponent || null, buttonDeleteText: this.props.buttonDeleteText, buttonNumberComponent: this.props.buttonNumberComponent || null, colorCircleButtons: this.props.colorCircleButtons, colorPassword: this.props.colorPassword || undefined, colorPasswordEmpty: this.props.colorPasswordEmpty, colorPasswordError: this.props.colorPasswordError || undefined, customBackSpaceIcon: this.props.customBackSpaceIcon, emptyColumnComponent: this.props.emptyColumnComponent, endProcess: this.endProcess, getCurrentLength: this.props.getCurrentLength, iconButtonDeleteDisabled: this.props.iconButtonDeleteDisabled, numbersButtonOverlayColor: this.props.numbersButtonOverlayColor || undefined, passwordComponent: this.props.passwordComponent || null, passwordLength: this.props.passwordLength || 4, pinCodeStatus: this.state.pinCodeStatus, pinCodeVisible: this.props.pinCodeVisible, previousPin: pin, sentenceTitle: this.props.title, status: PinCode_1.PinStatus.enter, styleButtonCircle: this.props.styleButtonCircle, styleCircleHiddenPassword: this.props.styleCircleHiddenPassword, styleCircleSizeEmpty: this.props.styleCircleSizeEmpty, styleCircleSizeFull: this.props.styleCircleSizeFull, styleColumnButtons: this.props.styleColumnButtons, styleColumnDeleteButton: this.props.styleColumnDeleteButton, styleColorButtonTitle: this.props.styleColorButtonTitle, styleColorButtonTitleSelected: this.props.styleColorButtonTitleSelected, styleColorSubtitle: this.props.styleColorSubtitle, styleColorSubtitleError: this.props.styleColorSubtitleError, styleColorTitle: this.props.styleColorTitle, styleColorTitleError: this.props.styleColorTitleError, styleContainer: this.props.styleContainerPinCode, styleDeleteButtonColorHideUnderlay: this.props.styleDeleteButtonColorHideUnderlay, styleDeleteButtonColorShowUnderlay: this.props.styleDeleteButtonColorShowUnderlay, styleDeleteButtonIcon: this.props.styleDeleteButtonIcon, styleDeleteButtonSize: this.props.styleDeleteButtonSize, styleDeleteButtonText: this.props.styleDeleteButtonText, styleEmptyColumn: this.props.styleEmptyColumn, stylePinCodeCircle: this.props.stylePinCodeCircle, styleRowButtons: this.props.styleRowButtons, styleTextButton: this.props.styleTextButton, styleTextSubtitle: this.props.styleTextSubtitle, styleTextTitle: this.props.styleTextTitle, styleViewTitle: this.props.styleViewTitle, subtitle: this.props.subtitle, subtitleComponent: this.props.subtitleComponent || null, subtitleError: this.props.subtitleError || 'Please try again', textPasswordVisibleFamily: this.props.textPasswordVisibleFamily, textPasswordVisibleSize: this.props.textPasswordVisibleSize, titleAttemptFailed: this.props.titleAttemptFailed || 'Incorrect PIN Code', titleComponent: this.props.titleComponent || null, titleConfirmFailed: this.props.titleConfirmFailed || 'Your entries did not match' })));
     }
 }
